@@ -46,10 +46,8 @@ int main() {
         }
     }
 
-    int len = bread.size();
-    for(int i = 0; i < len; i++) {
-        cout << bread.front();
-        bread.pop_front();
+    for(it = bread.begin(); it != bread.end(); it++){
+        cout << *it;
     }
 
     return 0;
