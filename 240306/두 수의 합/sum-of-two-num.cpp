@@ -6,31 +6,31 @@ using namespace std;
 
 int main() {
     int n;
-    double k;
+    int k;
     cin >> n >> k;
 
-    vector<int> num;
-    unordered_map<double, int> sum;
+    vector<int> v;
+    unordered_map<int, int> num;
     for(int i = 0; i < n; i++) {
         int input;
         cin >> input;
 
-        int j = 0;
-        while(i > 0 && j < i) {
-            double res = num[j] + input;
-            if(sum.find(res) != sum.end()) {
-                sum[res]++;
-            }
-            else {
-                sum.insert({res, 1});
-            }
-            j++;
-        }
-
-        num.push_back(input);        
+        v.push_back(input);
+        
+        if(num.find(input) != num.end()) num[input]++;        
+        else num.insert({input, 1});
     }
 
-    cout << sum[k];
+    int answer = 0;
+    for(int i = 0; i < n; i++) {
+        int target = k - v[i];
+
+        if(num.find(target) != num.end()) {
+            answer += num[target];
+        }
+    }
+
+    cout << answer / 2;
 
     return 0;
 }
