@@ -26,7 +26,8 @@ int main() {
         int target = k - v[i];
 
         if(num.find(target) != num.end()) {
-            answer += num[target];
+            if(target == v[i]) answer += (num[target] - 1);
+            else answer += num[target];
         }
     }
 
