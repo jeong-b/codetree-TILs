@@ -7,6 +7,6 @@ int main() {
     cin >> a >> b;
     cout << fixed;
     cout.precision(2);
-    cout << (a + b) / (a - b);
+    cout << double(a + b) / double(a - b);
 	return 0;
 }
