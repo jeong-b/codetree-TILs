@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     char a = 'C';
-    a = 'T'
+    a = 'T';
     cout << a;
 	return 0;
 }
