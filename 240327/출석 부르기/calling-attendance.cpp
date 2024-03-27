@@ -7,6 +7,7 @@ int main() {
     cin >> num;
     if (num == 1) cout << "John";
     else if (num == 2) cout << "Tom";
-    else cout << "Paul";
+    else if (num == 3) cout << "Tom";
+    else cout << "Vacancy";
 	return 0;
 }
