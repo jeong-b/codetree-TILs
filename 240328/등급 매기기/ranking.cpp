@@ -9,7 +9,6 @@ int main() {
     else if (num >= 80) cout << 'B';
     else if (num >= 70) cout << 'C';
     else if (num >= 60) cout << 'D';
-    else if (num >= 50) cout << 'E';
     else cout << 'F';
 	return 0;
 }
