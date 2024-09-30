@@ -24,27 +24,30 @@ int main()
 	// solve
 	int temp = 0;
 	answer = 0;
-	priority_queue<int> around_num;
-	for (int i = 1; i < n - 1; i++)
+	for (int i = 0; i < n; i++)
 	{
-		for (int j = 1; j < m - 1; j++)
+		for (int j = 0; j < m; j++)
 		{
-			around_num.push(map[i - 1][j - 1]);
-			around_num.push(map[i - 1][j + 1]);
-			around_num.push(map[i + 1][j - 1]);
-			around_num.push(map[i + 1][j + 1]);
-			around_num.push(map[i - 1][j]);
-			around_num.push(map[i + 1][j]);
-			around_num.push(map[i][j - 1]);
-			around_num.push(map[i][j + 1]);
+			priority_queue<int> around_num;
+			if (i - 1 >= 0)
+			{
+				if (j - 1 >= 0) around_num.push(map[i - 1][j - 1]);
+				if (j + 1 < m) around_num.push(map[i - 1][j + 1]);
+				around_num.push(map[i - 1][j]);
+			}
+			if (i + 1 < n)
+			{
+				if (j - 1 >= 0) around_num.push(map[i + 1][j - 1]);
+				if (j + 1 < m) around_num.push(map[i + 1][j + 1]);
+				around_num.push(map[i + 1][j]);
+			}
+			if (j - 1 >= 0) around_num.push(map[i][j - 1]);
+			if (j + 1 < m) around_num.push(map[i][j + 1]);
 
 			int first = around_num.top();
 			around_num.pop();
 			int second = around_num.top();
-			around_num.pop();
-			around_num.pop();
-			around_num.pop();
-
+			
 			temp = map[i][j] + first + second;
 			answer = max(answer, temp);
 		}
