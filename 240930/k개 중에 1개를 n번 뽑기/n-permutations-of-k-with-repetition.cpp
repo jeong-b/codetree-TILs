@@ -6,9 +6,9 @@ using namespace std;
 int N, K;
 vector<int> answer;
 
-void Choose(int current)
+void Choose()
 {
-	if (current == K)
+	if (answer.size() == K)
 	{
 		for (int i = 0; i < answer.size(); i++)
 		{
@@ -21,7 +21,7 @@ void Choose(int current)
 	for (int i = 1; i <= N; i++)
 	{
 		answer.push_back(i);
-		Choose(current + 1);
+		Choose();
 		answer.pop_back();
 	}
 }
@@ -30,6 +30,6 @@ int main()
 {
 	cin >> N >> K;
 
-	Choose(0);
+	Choose();
 	return 0;
 }
