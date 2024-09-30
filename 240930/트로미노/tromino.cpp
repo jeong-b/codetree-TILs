@@ -29,18 +29,8 @@ int main()
 		for (int j = 0; j < m; j++)
 		{
 			priority_queue<int> around_num;
-			if (i - 1 >= 0)
-			{
-				if (j - 1 >= 0) around_num.push(map[i - 1][j - 1]);
-				if (j + 1 < m) around_num.push(map[i - 1][j + 1]);
-				around_num.push(map[i - 1][j]);
-			}
-			if (i + 1 < n)
-			{
-				if (j - 1 >= 0) around_num.push(map[i + 1][j - 1]);
-				if (j + 1 < m) around_num.push(map[i + 1][j + 1]);
-				around_num.push(map[i + 1][j]);
-			}
+			if (i - 1 >= 0) around_num.push(map[i - 1][j]);
+			if (i + 1 < n) around_num.push(map[i + 1][j]);
 			if (j - 1 >= 0) around_num.push(map[i][j - 1]);
 			if (j + 1 < m) around_num.push(map[i][j + 1]);
 
