@@ -29,6 +29,10 @@ int main()
 	{
 		for (int j = 1; j < m - 1; j++)
 		{
+			around_num.push(map[i - 1][j - 1]);
+			around_num.push(map[i - 1][j + 1]);
+			around_num.push(map[i + 1][j - 1]);
+			around_num.push(map[i + 1][j + 1]);
 			around_num.push(map[i - 1][j]);
 			around_num.push(map[i + 1][j]);
 			around_num.push(map[i][j - 1]);
