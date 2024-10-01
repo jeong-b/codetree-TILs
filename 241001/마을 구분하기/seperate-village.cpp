@@ -15,12 +15,12 @@ priority_queue<int, vector<int>, greater<int>> answer;
 
 bool InRange(int y, int x)
 {
-	return x >= 0 && x < n && y >= 0 && y < n;
+	return y >= 0 && y < n && x >= 0 && x < n;
 }
 
 bool CanGo(int y, int x)
 {
-	if (!InRange) return false;
+	if (!InRange(y, x)) return false;
 	if (!map[y][x] || visited[y][x]) return false;
 	return true;
 }
@@ -62,12 +62,14 @@ int main()
 
 			visited[i][j] = true;
 			town.push_back(1);
+			// cout << townNum << ':' << i << ' ' << j << endl;
 			FindTown(i, j, townNum);
 			townNum++;
 		}
 	}
 	for (int i = 0; i < town.size(); i++)
 	{
+		// cout << i << ':' << town[i] << endl;
 		answer.push(town[i]);
 	}
 
