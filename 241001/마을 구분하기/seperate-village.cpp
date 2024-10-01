@@ -9,7 +9,7 @@ using namespace std;
 int n;
 bool map[MAX_SIZE][MAX_SIZE];
 bool visited[MAX_SIZE][MAX_SIZE];
-int dir[2][2] = { {0,1}, {1,0} };
+int dir[4][2] = { {-1,0}, { 0,1 }, {1,0}, {0,-1} };
 vector<int> town;
 priority_queue<int, vector<int>, greater<int>> answer;
 
@@ -27,7 +27,7 @@ bool CanGo(int y, int x)
 
 void FindTown(int y, int x, int townNum)
 {
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		int nextY = y + dir[i][0];
 		int nextX = x + dir[i][1];
@@ -60,6 +60,7 @@ int main()
 		{
 			if (!CanGo(i, j)) continue;
 
+			visited[i][j] = true;
 			town.push_back(1);
 			FindTown(i, j, townNum);
 			townNum++;
