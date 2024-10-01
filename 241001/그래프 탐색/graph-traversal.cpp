@@ -40,5 +40,8 @@ int main()
 	visited[1] = true;
 	DFS(1);
 
+	// output
+	cout << answer;
+
 	return 0;
 }
