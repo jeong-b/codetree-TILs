@@ -18,7 +18,7 @@ int count(int col) {
     else if (col == 2) dp[col] = 7;
     else {
         dp[col] = ((count(col - 1) * 2) + (count(col - 2) * 3)) % 1000000007;
-        for (int i = 3; i < col; i++) {
+        for (int i = 3; i <= col; i++) {
             dp[col] = (dp[col] + (count(col - i) * 2)) % 1000000007;
         }
     }
