@@ -27,7 +27,7 @@ int main() {
     cin >> N;
 
     // solve
-    memset(square, -1, sizeof(int) * N);
+    memset(square, -1, sizeof(int) * MAX_SIZE);
     count(N);
 
     // output
