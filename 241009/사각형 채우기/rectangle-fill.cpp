@@ -27,11 +27,11 @@ int main() {
     cin >> N;
 
     // solve
-    memsst(square, -1, sizeof(int) * N);
+    memset(square, -1, sizeof(int) * N);
     count(N);
 
     // output
     cout << square[N];
-    
+
     return 0;
 }
