@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int routes[MAX_SIZE];
+long long routes[MAX_SIZE];
 int N;
 
 int stair (int floor) {
