@@ -5,7 +5,7 @@
 
 using namespace std;
 
-long long dp[MAX_SIZE];
+int dp[MAX_SIZE];
 int N;
 
 int count(int col) {
