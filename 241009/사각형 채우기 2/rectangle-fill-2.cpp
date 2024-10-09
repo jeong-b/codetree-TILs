@@ -13,7 +13,7 @@ int count(int num) {
 
     if (num == 1) { dp[num] = 1; }
     else if (num == 2) { dp[num] = 3; }
-    else { dp[num] = count(num - 1) + (count(num - 2) * 2); }
+    else { dp[num] = (count(num - 1) + (count(num - 2) * 2)) % 10007; }
 
     return dp[num];
 }
