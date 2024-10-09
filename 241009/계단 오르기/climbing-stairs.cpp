@@ -8,7 +8,7 @@ using namespace std;
 long long routes[MAX_SIZE];
 int N;
 
-int stair (int floor) {
+long long stair (int floor) {
     if (routes[floor] != -1) {
         return routes[floor];
     }
@@ -31,7 +31,7 @@ int main() {
     cin >> N;
 
     // solve
-    memset(routes, -1, sizeof(int) * MAX_SIZE);
+    memset(routes, -1, sizeof(long long) * MAX_SIZE);
     stair(N);
 
     // output
