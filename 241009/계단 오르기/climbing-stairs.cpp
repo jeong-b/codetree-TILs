@@ -19,7 +19,7 @@ int stair (int floor) {
         routes[floor] = 1;
     }
     else {
-        routes[floor] = stair(floor - 3) + stair(floor - 2);
+        routes[floor] = stair(floor - 2) + stair(floor - 3);
     }
 
     return routes[floor];
@@ -36,6 +36,6 @@ int main() {
 
     // output
     cout << routes[N];
-    
+
     return 0;
 }
