@@ -35,7 +35,7 @@ int main() {
     stair(N);
 
     // output
-    cout << routes[N];
+    cout << routes[N] % 10007;
 
     return 0;
 }
