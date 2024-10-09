@@ -5,10 +5,10 @@
 
 using namespace std;
 
-int dp[MAX_SIZE];
+long long dp[MAX_SIZE];
 int N;
 
-int count(int col) {
+long long count(int col) {
     if (dp[col] != -1) {
         return dp[col];
     }
@@ -31,7 +31,7 @@ int main() {
     cin >> N;
 
     // solve
-    memset(dp, -1, sizeof(int) * MAX_SIZE);
+    memset(dp, -1, sizeof(long long) * MAX_SIZE);
     count(N);
 
     // output
