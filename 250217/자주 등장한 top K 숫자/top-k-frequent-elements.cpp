@@ -9,6 +9,10 @@ int N, K;
 unordered_map<int, int> um;
 
 int main() {
+    ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+
     cin >> N >> K;
 
     for (int i = 0; i < N; ++i) {
