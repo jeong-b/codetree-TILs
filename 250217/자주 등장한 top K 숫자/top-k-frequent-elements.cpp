@@ -1,40 +1,41 @@
 #include <iostream>
-#include <unordered_map>
 #include <vector>
-#include <algorithm>
+#include <queue>
+#include <unordered_map>
+
 using namespace std;
 
-#define MAX_N 100000
-
-// 변수 선언
-int n, k;
-int arr[MAX_N];
-unordered_map<int, int> freq;
-vector<pair<int, int> > v;
+int N, K;
+unordered_map<int, int> um;
 
 int main() {
-    // 입력:
-    cin >> n >> k;
+    ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
-    // 각 숫자가 몇 번씩 나왔는지를
-    // hashmap에 기록해줍니다.
-    for(int i = 0; i < n; i++) {
-        cin >> arr[i];
-        freq[arr[i]]++;
+    cin >> N >> K;
+
+    for (int i = 0; i < N; ++i) {
+        int number;
+        cin >> number;
+        um[number]++;
     }
 
-    // hashmap을 순회하며
-    // 중복되지 않게 새 배열을 만들어 줍니다.
-    for(unordered_map<int, int>::iterator it = freq.begin(); it != freq.end(); it++) {
-        v.push_back({it->second, it->first});
+    auto cmp = [](const pair<int, int>& left, const pair<int, int>& right) {
+        if (left.second == right.second) return left.first < right.first;
+        return left.second < right.second;
+    };
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> pq(cmp);
+
+    for (const auto &item : um) {
+        pq.push(item);
     }
 
-    // 문제에서 요구한 정렬 기준에 맞추어 정렬합니다.
-    sort(v.begin(), v.end());
-
-    // 출력:
-    for(int i = (int)v.size() - 1; i >= (int)v.size() - k; i--)
-        cout << v[i].second << " ";
+    for (int i = 0; i < K; i++) {
+        cout << pq.top().first << ' ';
+        pq.pop();
+    }
 
     return 0;
 }
