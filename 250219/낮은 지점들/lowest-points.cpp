@@ -28,8 +28,8 @@ int main()
         }
     }
 
-    for (const auto& [x, y] : minYByX) {
-        answer += y;
+    for (const auto& pair : minYByX) {
+        answer += pair.second;
     }
 
     cout << answer;
