@@ -3,24 +3,26 @@
 
 using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+    
+    int N;
     map<int, int> m;
-    for (int i = 0; i < n; i++) {
+
+    cin >> N;
+
+    for (int i = 0; i < N; ++i) {
         int input;
         cin >> input;
-
-        if(m.find(input) != m.end()) continue;
-
-        m.insert({ input, i + 1 });
+        m.insert({input, i + 1});
     }
 
-    map<int, int>::iterator it;
-    for (it = m.begin(); it != m.end(); it++) {
-        cout << (it -> first) << " " << (it -> second) << endl;
+    for (auto it = m.begin(); it != m.end(); ++it) {
+        cout << (*it).first << ' ' << (*it).second << '\n';
     }
 
-    return 0;
+	return 0;
 }
