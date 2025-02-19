@@ -17,11 +17,12 @@ int main()
     for (int i = 0; i < N; ++i) {
         int input;
         cin >> input;
+        if(m.find(input) != m.end()) continue;
         m.insert({input, i + 1});
     }
 
     for (auto it = m.begin(); it != m.end(); ++it) {
-        cout << (*it).first << ' ' << (*it).second << endl;
+        cout << (*it).first << ' ' << (*it).second << '\n';
     }
 
 	return 0;
