@@ -20,7 +20,7 @@ int main()
         m.insert({input, i + 1});
     }
 
-    for (auto it = m.begin(); it != m.end(); ++it) {
+    for (auto it = m.begin(); it != m.end(); it++) {
         cout << (*it).first << ' ' << (*it).second << '\n';
     }
 
