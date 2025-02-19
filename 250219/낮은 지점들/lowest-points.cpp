@@ -12,7 +12,7 @@ int main()
 
     int N;
     long long answer = 0;
-    unordered_map<int, long long> ponits;
+    unordered_map<int, long long> minYByX;
 
     cin >> N;
     for (int i = 0; i < N; ++i) {
@@ -20,15 +20,16 @@ int main()
         long long y;
         cin >> x >> y;
 
-        if (ponits.find(x) != ponits.end()) {
-            ponits[x] = min(ponits[x], y);
-            continue;
+        if (minYByX.find(x) != minYByX.end()) {
+            minYByX[x] = min(minYByX[x], y);
         }
-        ponits[x] = y;
+        else {
+            minYByX[x] = y;
+        }
     }
 
-    for (auto it = ponits.begin(); it != ponits.end(); ++it) {
-        answer += (*it).second;
+    for (const auto& [x, y] : minYByX) {
+        answer += y;
     }
 
     cout << answer;
