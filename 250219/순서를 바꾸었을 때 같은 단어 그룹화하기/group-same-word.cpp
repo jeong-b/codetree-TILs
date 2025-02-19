@@ -5,9 +5,9 @@
 
 using namespace std;
 
-int N;
+int N, answer = 0;
 string word;
-unordered_map<string, int> wordList;
+unordered_map<string, int> wordCount;
 
 int main()
 {
@@ -15,14 +15,12 @@ int main()
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 
-    int answer = 0;
     cin >> N;
 
     for (int i = 0; i < N; ++i) {
         cin >> word;
         sort(word.begin(), word.end());
-        wordList[word]++;
-        answer = max(answer, wordList[word]);
+        answer = max(answer, ++wordList[word]);
     }
 
     cout << answer;
