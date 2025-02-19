@@ -20,7 +20,7 @@ int main()
     for (int i = 0; i < N; ++i) {
         cin >> word;
         sort(word.begin(), word.end());
-        answer = max(answer, ++wordList[word]);
+        answer = max(answer, ++wordCount[word]);
     }
 
     cout << answer;
