@@ -1,31 +1,30 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
 
 using namespace std;
 
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     
     string word;
     cin >> word;
 
-    unordered_map<char, int> wordCount;
-    for(char a : word) {
-        wordCount[a]++;
+    int wordCount[26] = {0};  // 알파벳 개수만큼 배열 생성
+
+    for(char c : word) {
+        wordCount[c - 'a']++;  // 알파벳 카운트
     }
 
-    for(char a : word) {
-        if(wordCount[a] == 1) {
-            cout << a;
+    for(char c : word) {
+        if(wordCount[c - 'a'] == 1) {
+            cout << c << '\n';  // 개행 추가
             return 0;
         }
     }
 
-    cout << "None";
-
-	return 0;
+    cout << "None\n";  // 개행 추가
+    return 0;
 }
