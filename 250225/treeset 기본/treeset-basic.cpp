@@ -59,14 +59,14 @@ int main()
                 cout << "None\n";
                 continue;
             }
-            cout << *numbers.begin() << '\n';
+            cout << *numbers.rbegin() << '\n';
         }
         else if (cmd == "smallest") {
             if (numbers.size() == 0) {
                 cout << "None\n";
                 continue;
             }
-            cout << *numbers.rbegin() << '\n';
+            cout << *numbers.begin() << '\n';
         }
     }
 
