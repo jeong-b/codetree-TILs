@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <unordered_map>
+#include <functional>
 
 using namespace std;
 
@@ -14,36 +16,40 @@ int main() {
 
     set<int> numbers;
 
+    unordered_map<string, function<void()>> commands;
+    int input;  // 공통 입력 변수
+
+    // 🔹 명령어와 동작을 매핑
+    commands["add"] = [&]() { cin >> input; numbers.insert(input); };
+    commands["remove"] = [&]() { cin >> input; numbers.erase(input); };
+    commands["find"] = [&]() {
+        cin >> input;
+        cout << (numbers.find(input) != numbers.end() ? "true\n" : "false\n");
+    };
+    commands["lower_bound"] = [&]() {
+        cin >> input;
+        auto it = numbers.lower_bound(input);
+        cout << (it == numbers.end() ? "None\n" : to_string(*it) + "\n");
+    };
+    commands["upper_bound"] = [&]() {
+        cin >> input;
+        auto it = numbers.upper_bound(input);
+        cout << (it == numbers.end() ? "None\n" : to_string(*it) + "\n");
+    };
+    commands["largest"] = [&]() {
+        cout << (numbers.empty() ? "None\n" : to_string(*numbers.rbegin()) + "\n");
+    };
+    commands["smallest"] = [&]() {
+        cout << (numbers.empty() ? "None\n" : to_string(*numbers.begin()) + "\n");
+    };
+
+    // 🔹 명령어 실행 루프
     for (int i = 0; i < N; ++i) {
-        int input;
         string cmd;
         cin >> cmd;
 
-        if (cmd == "add") {
-            cin >> input;
-            numbers.insert(input);
-        } 
-        else if (cmd == "remove") {
-            cin >> input;
-            numbers.erase(input);
-        } 
-        else if (cmd == "find") {
-            cin >> input;
-            cout << (numbers.find(input) != numbers.end() ? "true\n" : "false\n");
-        } 
-        else if (cmd == "lower_bound") {
-            cin >> input;
-            cout << (numbers.lower_bound(input) == numbers.end() ? "None\n" : to_string(*numbers.lower_bound(input)) + "\n");
-        } 
-        else if (cmd == "upper_bound") {
-            cin >> input;
-            cout << (numbers.upper_bound(input) == numbers.end() ? "None\n" : to_string(*numbers.upper_bound(input)) + "\n");
-        } 
-        else if (cmd == "largest") {
-            cout << (numbers.empty() ? "None\n" : to_string(*numbers.rbegin()) + "\n");
-        } 
-        else if (cmd == "smallest") {
-            cout << (numbers.empty() ? "None\n" : to_string(*numbers.begin()) + "\n");
+        if (commands.find(cmd) != commands.end()) {
+            commands[cmd]();  // 해당 명령어 실행
         }
     }
 
