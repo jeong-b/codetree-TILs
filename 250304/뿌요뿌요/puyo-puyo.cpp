@@ -37,15 +37,15 @@ bool IsSame(int row, int col, int info) {
 
 int dir[4][2] = { {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-void DFS(int row, int col, int info) {
+void DFS(int row, int col, int info,int tag) {
     for (int i = 0; i < 4; ++i) {
         int nextRow = row + dir[i][0];
         int nextCol = col + dir[i][1];
 
         if(!IsSame(nextRow, nextCol, info)) continue;
         visited[nextRow][nextCol] = true;
-        m[info]++;
-        DFS(nextRow, nextCol, info); 
+        m[tag]++;
+        DFS(nextRow, nextCol, info, tag); 
 
     }
 }
@@ -58,16 +58,15 @@ int main()
 
     Input();
 
+    int tag = 0;
     for (int i = 0; i < N; ++i) {
-        int temp = 0;
         for (int j = 0; j < N; ++j) {
             if(visited[i][j]) continue;
             //m.insert({map[i][j], 0});
             visited[i][j] = true;           
-            temp = m[map[i][j]];
-            m[map[i][j]] = 1;            
-            DFS(i, j, map[i][j]);
-            m[map[i][j]] = max(temp, m[map[i][j]]);
+            m[tag] = 1;            
+            DFS(i, j, map[i][j], tag);
+            tag++;
         }
     }
 
