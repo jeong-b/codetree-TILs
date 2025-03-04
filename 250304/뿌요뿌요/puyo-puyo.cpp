@@ -62,7 +62,8 @@ int main()
         for (int j = 0; j < N; ++j) {
             if(visited[i][j]) continue;
             //m.insert({map[i][j], 0});
-            m[map[i][j]] = 0;            
+            visited[i][j] = true;           
+            m[map[i][j]] = 1;
             DFS(i, j, map[i][j]);
         }
     }
