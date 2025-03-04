@@ -43,8 +43,6 @@ bool CanGo(int row, int col) {
 }
 
 void BFS(int startRow, int startCol) {
-    //memset(visited, false, sizeof(visited));
-
     queue<pair<int, int>> q;
     q.push({startRow, startCol});
     avalablePoints.insert(startRow * 1000 + startCol);
@@ -82,17 +80,7 @@ int main()
         BFS((*it).first, (*it).second);
     }
 
-    int cnt = 0;
-
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j){
-            if(visited[i][j]) cnt++;
-        }
-    }
-
-    cout << cnt;
-
-    //cout << avalablePoints.size();
+    cout << avalablePoints.size();
 
 	return 0;
 }
