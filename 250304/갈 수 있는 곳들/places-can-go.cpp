@@ -43,7 +43,7 @@ bool CanGo(int row, int col) {
 }
 
 void BFS(int startRow, int startCol) {
-    memset(visited, false, sizeof(visited));
+    //memset(visited, false, sizeof(visited));
 
     queue<pair<int, int>> q;
     q.push({startRow, startCol});
