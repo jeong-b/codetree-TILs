@@ -59,12 +59,15 @@ int main()
     Input();
 
     for (int i = 0; i < N; ++i) {
+        int temp = 0;
         for (int j = 0; j < N; ++j) {
             if(visited[i][j]) continue;
             //m.insert({map[i][j], 0});
             visited[i][j] = true;           
-            m[map[i][j]] = 1;
+            temp = m[map[i][j]];
+            m[map[i][j]] = 1;            
             DFS(i, j, map[i][j]);
+            m[map[i][j]] = max(temp, m[map[i][j]]);
         }
     }
 
