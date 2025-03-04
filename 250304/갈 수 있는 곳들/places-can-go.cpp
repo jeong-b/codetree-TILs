@@ -82,7 +82,17 @@ int main()
         BFS((*it).first, (*it).second);
     }
 
-    cout << avalablePoints.size();
+    int cnt = 0;
+
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j){
+            if(visited[i][j]) cnt++;
+        }
+    }
+
+    cout << cnt;
+
+    //cout << avalablePoints.size();
 
 	return 0;
 }
