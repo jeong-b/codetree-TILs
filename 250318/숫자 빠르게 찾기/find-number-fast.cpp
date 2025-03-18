@@ -29,6 +29,7 @@ int binary_search(int target) {
 
         if (arr[mid] == target) {
             return mid + 1;
+            break;
         }
 
         if (arr[mid] > target) right = mid - 1;
