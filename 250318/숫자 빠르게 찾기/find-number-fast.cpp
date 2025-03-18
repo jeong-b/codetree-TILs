@@ -22,22 +22,20 @@ void input() {
 }
 
 int binary_search(int target) {
-    int answer = -2;
     int left = 0, right = N - 1;
 
     while (left <= right) {
         int mid = (left + right) / 2;
 
         if (arr[mid] == target) {
-            answer = mid;
-            break;
+            return mid + 1;
         }
 
         if (arr[mid] > target) right = mid - 1;
         else left = mid + 1;
     }
 
-    return answer + 1;
+    return -1;
 }
 
 int main() {
